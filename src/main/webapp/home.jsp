@@ -52,6 +52,34 @@
 <shiro:notAuthenticated><p>If you want to access the authenticated-only <a href="<c:url value="/account"/>">account page</a>,
     you will need to log-in first.</p></shiro:notAuthenticated>
 
+<h2>Roles</h2>
+
+<p>Here are the roles you have and don't have. Log out and log back in under different user
+    accounts to see different roles.</p>
+
+<h3>Roles you have:</h3>
+
+<p>
+    <shiro:hasRole name="Captains">Captains<br/></shiro:hasRole>
+    <shiro:hasRole name="Officers">Bad Guys<br/></shiro:hasRole>
+    <shiro:hasRole name="Enlisted">Enlisted<br/></shiro:hasRole>
+</p>
+
+<h3>Roles you DON'T have:</h3>
+
+<p>
+    <shiro:lacksRole name="Captains">Captains<br/></shiro:lacksRole>
+    <shiro:lacksRole name="Officers">Officers<br/></shiro:lacksRole>
+    <shiro:lacksRole name="Enlisted">Enlisted<br/></shiro:lacksRole>
+</p>
+
+<h2>Permissions</h2>
+
+<ul>
+    <li>You may <shiro:lacksPermission name="ship:NCC-1701-D:command"><b>NOT</b> </shiro:lacksPermission> command the <code>NCC-1701-D</code> Starship!</li>
+    <li>You may <shiro:lacksPermission name="user:${account.username}:edit"><b>NOT</b> </shiro:lacksPermission> edit the ${account.username} user!</li>
+</ul>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
